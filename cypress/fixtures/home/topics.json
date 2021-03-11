@@ -1,0 +1,25 @@
+{
+  "title": "Dataset Topics",
+  "topics": [
+    {
+      "title": "Transportation",
+      "url": "https://demo.getdkan.org/search?theme=Transportation"
+    },
+    {
+      "title": "City Planning",
+      "url": "https://demo.getdkan.org/search?theme=City%20Planning"
+    },
+    {
+      "title": "Finance and Budgeting",
+      "url": "https://demo.getdkan.org/search?theme=Finance%20and%20Budgeting"
+    },
+    {
+      "title": "Public Safety",
+      "url": "https://demo.getdkan.org/search?theme=Public%20Safety"
+    },
+    {
+      "title": "Health Care",
+      "url": "https://demo.getdkan.org/search?theme=Health%20Care"
+    }
+  ]
+}
