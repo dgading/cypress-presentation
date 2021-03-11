@@ -45,7 +45,7 @@ describe('DKAN Homepage', () => {
     cy.findByRole('button', {name: 'Clear'}).should('not.exist');
   });
 
-  it.skip('I can clear hero input', () => {
+  it('I can clear hero input', () => {
     // cy.log(cy.findByRole('input'))
     cy.findByLabelText('Search').as('heroInput');
     // Initial State
@@ -65,7 +65,7 @@ describe('DKAN Homepage', () => {
     cy.findByRole('button', {name: 'Clear'}).should('not.exist');
   });
 
-  it.only('I can clear hero input with Custom Command', () => {
+  it('I can clear hero input with Custom Command', () => {
     cy.checkInputValue('Search', '', null);
     cy.checkButtonsExistence([{name: 'Go', shouldExist: true}, {name: 'Clear', shouldExist: false}])
 
