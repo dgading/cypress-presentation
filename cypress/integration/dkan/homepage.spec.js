@@ -14,7 +14,7 @@ describe('DKAN Homepage', () => {
     cy.findAllByRole('link', {name: 'Open Data Catalog'}).its('length').should('eq', 2);
     cy.get('.dc-site-name').findByRole('link', {name: 'Open Data Catalog'}).should('exist');
   });
-  it.only('Has a topics sections', () => {
+  it('Has a topics sections', () => {
     cy.get('@topicJson').then((json) => {
       cy.findByRole('heading', { name: json.title, level: 2}).should('exist');
       json.topics.forEach((topic) => {
@@ -29,4 +29,38 @@ describe('DKAN Homepage', () => {
       });
     })
   });
+  it.only('the hero directs the user to the search page', () => {
+    cy.findByRole('heading', { name: 'Welcome to DKAN', level: 2}).should('exist');
+    cy.findByText(/DKAN is an open-source data management/).should('exist');
+    cy.findByLabelText('Search').should('exist');
+    cy.findByLabelText('Search').should('have.value', '');
+    cy.findByRole('button', {name: 'Clear'}).should('not.exist');
+  });
+  it.only('I can clear hero input', () => {
+    // cy.log(cy.findByRole('input'))
+    cy.findByLabelText('Search').as('heroInput');
+    // Initial State
+    cy.get('@heroInput').should('exist');
+    cy.get('@heroInput').should('have.value', '');
+    cy.findByRole('button', {name: 'Go'}).should('exist');
+    cy.findByRole('button', {name: 'Clear'}).should('not.exist');
+    // Type some data
+    cy.get('@heroInput').type('dataset');
+    cy.get('@heroInput').should('have.value', 'dataset');
+    cy.findByRole('button', {name: 'Go'}).should('exist');
+    cy.findByRole('button', {name: 'Clear'}).should('exist');
+    // Click Clear button
+    cy.findByRole('button', {name: 'Clear'}).click();
+    cy.get('@heroInput').should('have.value', '');
+    cy.findByRole('button', {name: 'Go'}).should('exist');
+    cy.findByRole('button', {name: 'Clear'}).should('not.exist');
+  })
+  it.only('I can click Go to visit the search page', () => {
+    cy.findByLabelText('Search').as('heroInput');
+    cy.get('@heroInput').type('dataset');
+    cy.findByRole('button', {name: 'Go'}).click();
+    cy.location().should((loc) => {
+      expect(loc.href).to.eq('https://demo.getdkan.org/search/?fulltext=dataset')
+    })
+  })
 });
