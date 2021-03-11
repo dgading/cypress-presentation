@@ -4,7 +4,9 @@
   "description": "A presentation on Cypress",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run"
   },
   "repository": {
     "type": "git",
@@ -18,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/dgading/cypress-presentation/issues"
   },
-  "homepage": "https://github.com/dgading/cypress-presentation#readme"
+  "homepage": "https://github.com/dgading/cypress-presentation#readme",
+  "devDependencies": {
+    "cypress": "^6.6.0"
+  }
 }
