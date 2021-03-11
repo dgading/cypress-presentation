@@ -15,4 +15,4 @@ There are 6 branches in this repo and each adds to the next until you get to wha
 5. `user-interactions` Test out the hero on DKAN homepage
 6. `axe-testing` Add Cypress axe and setup some custom commands, including one for Cypress Axe and 2 to simplify the Hero tests
 
-And that's it. This will a fail if the DKAN homepage ever changes. 
+And that's it. This will all fail if the DKAN homepage ever changes. 
